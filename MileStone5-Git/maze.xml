@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_191" class="java.beans.XMLDecoder">
+ <object class="java.util.HashMap">
+  <void method="put">
+   <object class="algorithms.MatrixProblem">
+    <void property="costs">
+     <array class="[I" length="2">
+      <void index="0">
+       <array class="int" length="4"/>
+      </void>
+      <void index="1">
+       <array class="int" length="4">
+        <void index="0">
+         <int>3</int>
+        </void>
+        <void index="1">
+         <int>2</int>
+        </void>
+        <void index="2">
+         <int>1</int>
+        </void>
+       </array>
+      </void>
+     </array>
+    </void>
+    <void property="goals">
+     <object class="java.util.HashSet">
+      <void method="add">
+       <object class="algorithms.State">
+        <void property="state">
+         <object class="algorithms.Position"/>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="height">
+     <int>2</int>
+    </void>
+    <void property="start">
+     <object class="algorithms.State">
+      <void property="state">
+       <object class="algorithms.Position"/>
+      </void>
+     </object>
+    </void>
+    <void property="width">
+     <int>4</int>
+    </void>
+   </object>
+   <string></string>
+  </void>
+ </object>
+</java>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import View.HomePicture?>
+<?import View.MapLogic?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MainWindowLogic">
+   <children>
+      <AnchorPane layoutX="-28.0" prefHeight="575.0" prefWidth="257.0" style="-fx-background-color: #025ced;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="26.0" layoutY="86.0" mnemonicParsing="false" onMouseClicked="#ManualShower" prefHeight="50.0" prefWidth="245.0" text="Manual mode" />
+            <Button layoutX="26.0" layoutY="193.0" mnemonicParsing="false" onMouseClicked="#AutoPilotShower" prefHeight="50.0" prefWidth="245.0" text="AutoPilot mode" />
+            <Button fx:id="HomeButton" layoutX="26.0" layoutY="299.0" mnemonicParsing="false" onMouseClicked="#HomeShower" prefHeight="50.0" prefWidth="245.0" text="Calculate Path Mode" />
+            <Button fx:id="aboutButton" layoutX="30.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#aboutShower" prefHeight="25.0" prefWidth="37.0" text="🏠" />
+            <Text layoutX="55.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="©Opal Koren &amp; Or Mizrahi" wrappingWidth="186.98307228088402">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+         </children></AnchorPane>
+      <AnchorPane fx:id="HomePane" layoutX="244.0" layoutY="-6.0" prefHeight="104.0" prefWidth="457.0" visible="false">
+         <children>
+            <Button layoutX="41.0" layoutY="32.0" mnemonicParsing="false" onAction="#PopupHandler" text="Connect" />
+            <Button layoutX="149.0" layoutY="32.0" mnemonicParsing="false" onAction="#loadMap" text="Load data" />
+            <Button layoutX="278.0" layoutY="33.0" mnemonicParsing="false" onAction="#mapPopupHandler" text="Calculate path" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="AutoPilotPane" layoutX="244.0" layoutY="6.0" prefHeight="444.0" prefWidth="457.0" visible="false">
+         <children>
+            <Button layoutX="85.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadScript" text="Load txt file" />
+            <TextArea fx:id="script" layoutX="20.0" layoutY="56.0" prefHeight="383.0" prefWidth="425.0" />
+            <Button layoutX="308.0" layoutY="14.0" mnemonicParsing="false" onAction="#interpret" text="Run script" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="ManualPane" layoutX="244.0" layoutY="6.0" prefHeight="444.0" prefWidth="457.0" visible="false">
+         <children>
+            <Circle fx:id="bigCircle" fill="#9dc6d2" layoutX="211.0" layoutY="182.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="smallCircle" fill="#9bc63e" layoutX="212.0" layoutY="180.0" onMouseDragged="#moveJoyStick" radius="35.0" strokeType="INSIDE" />
+            <Text layoutX="149.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manual" wrappingWidth="186.9830722808838">
+               <font>
+                  <Font size="41.0" />
+               </font>
+            </Text>
+            <Text layoutX="168.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="⬅ aileron ➡">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="280.0" layoutY="186.0" rotate="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="⬅ Elevator➡">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="39.0" layoutY="183.0" rotate="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Throttle">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="193.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rudder">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Slider fx:id="throttleSlider" blockIncrement="0.01" layoutX="91.0" layoutY="87.0" max="1.0" onMouseDragged="#moveThrottleSlider" orientation="VERTICAL" prefHeight="181.0" prefWidth="14.0" />
+            <Slider fx:id="rudderSlider" blockIncrement="0.01" layoutX="113.0" layoutY="292.0" max="1.0" min="-1.0" onMouseDragged="#moveRudderSlider" prefHeight="24.0" prefWidth="200.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="MapPane" layoutX="249.0" layoutY="67.0" prefHeight="383.0" prefWidth="451.0">
+         <children>
+            <MapLogic fx:id="mapLogic" height="383.0" layoutY="2.0" onMouseClicked="#setDestOnMap" width="451.0" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="aboutPane" layoutX="243.0" layoutY="-2.0" prefHeight="450.0" prefWidth="457.0" visible="false">
+         <children>
+            <Text fill="#6d8c25" layoutX="109.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="𝑭𝒍𝒊𝒈𝒉𝒕𝑮𝒆𝒂𝒓 𝑺𝒊𝒎𝒖𝒍𝒂𝒕𝒐𝒓 𝒂𝒑𝒑𝒍𝒊𝒄𝒂𝒕𝒊𝒐𝒏" textAlignment="CENTER" wrappingWidth="231.47006225585938">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <HomePicture fx:id="homePicture" height="215.0" layoutX="2.0" layoutY="107.0" width="445.0" />
+            <Text layoutX="10.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="𝑨𝒏 𝒂𝒅𝒗𝒂𝒏𝒄𝒆𝒅 𝒇𝒍𝒊𝒈𝒉𝒕 𝒔𝒊𝒎𝒖𝒍𝒂𝒕𝒊𝒐𝒏 𝒂𝒑𝒑 𝒘𝒊𝒕𝒉 𝒅𝒊𝒇𝒇𝒆𝒓𝒆𝒏𝒕 𝒇𝒆𝒂𝒕𝒖𝒓𝒆𝒔 𝒂𝒏𝒅 𝒎𝒐𝒅𝒆𝒔." />
+            <Text fill="#064732d9" layoutX="14.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" 𝑶𝒓 𝑴𝒊𝒛𝒓𝒂𝒉𝒊 𝑮𝒊𝒕𝑯𝒖𝒃: 𝒉𝒕𝒕𝒑𝒔://𝒈𝒊𝒕𝒉𝒖𝒃.𝒄𝒐𝒎/𝑶𝒓𝑴𝒊𝒛𝒓𝒂𝒉𝒊" />
+            <Text fill="#064530da" layoutX="17.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="𝑶𝒑𝒂𝒍 𝑲𝒐𝒓𝒆𝒏 𝑮𝒊𝒕𝑯𝒖𝒃: 𝒉𝒕𝒕𝒑𝒔://𝒈𝒊𝒕𝒉𝒖𝒃.𝒄𝒐𝒎/𝑶𝒑𝒂𝒍𝑲𝒐93" />
+            <Text fill="#f03718" layoutX="17.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" 𝑽𝒆𝒓𝒔𝒊𝒐𝒏 1.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

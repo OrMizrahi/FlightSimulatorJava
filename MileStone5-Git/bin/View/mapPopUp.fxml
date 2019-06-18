@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.mapPopUpLogic">
+   <children>
+      <AnchorPane layoutX="8.0" prefHeight="79.0" prefWidth="340.0">
+         <children>
+            <Text layoutX="50.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PORT:" />
+            <Text layoutX="90.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ConnectToMapServer" />
+            <Text layoutX="50.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP:" />
+            <TextField fx:id="varMapIP" layoutX="99.0" layoutY="46.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="151.0" />
+            <TextField fx:id="varMapPort" layoutX="99.0" layoutY="80.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="150.0" />
+            
+         </children>
+      </AnchorPane>
+      <Button fx:id="submit" layoutX="144.0" layoutY="171.0" mnemonicParsing="false" onAction="#connectToMapServer" text="Submit" />
+   </children>
+</AnchorPane>
